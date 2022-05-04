@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class CommandTest {
 
     @Test
-    void testCommand() throws CommandException {
+    void testCommand() throws NoSuchCommandException {
         CommandSet<Boolean> commandSet = new CommandSet<>();
         commandSet.add(new Command<>("/test", args -> true));
         boolean result = commandSet.execute("/test");
@@ -18,7 +18,7 @@ public class CommandTest {
     }
 
     @Test
-    void testCommandArgs() throws CommandException {
+    void testCommandArgs() throws NoSuchCommandException {
         CommandSet<Integer> commandSet = new CommandSet<>();
         commandSet.add(new Command<>("/add", args -> {
             args.next();

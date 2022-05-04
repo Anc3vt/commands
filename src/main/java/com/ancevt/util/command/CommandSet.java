@@ -17,8 +17,13 @@
  */
 package com.ancevt.util.command;
 
+import com.ancevt.util.args.Args;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashSet;
 import java.util.StringTokenizer;
+import java.util.function.Function;
 
 import static java.lang.String.format;
 
@@ -26,7 +31,7 @@ public class CommandSet<T> extends HashSet<Command<? extends T>> {
 
     private static final String DELIMITER = " ";
 
-    public T execute(String commandLine) throws CommandException {
+    public T execute(@NotNull String commandLine) throws NoSuchCommandException {
         StringTokenizer stringTokenizer = new StringTokenizer(commandLine, DELIMITER);
         String commandWord = stringTokenizer.nextToken();
 
@@ -36,6 +41,15 @@ public class CommandSet<T> extends HashSet<Command<? extends T>> {
             }
         }
 
-        throw new CommandException(format("No such command %s", commandWord), this);
+        throw new NoSuchCommandException(format("Unknown command: %s", commandWord), commandWord, commandLine, this);
+    }
+
+    public CommandSet registerCommand(String commandLine, Function<Args, T> function) {
+        add(new Command<>(commandLine, function));
+        return this;
+    }
+
+    public static <T> @NotNull CommandSet<T> create(Class<T> type) {
+        return new CommandSet<>();
     }
 }

@@ -17,23 +17,36 @@
  */
 package com.ancevt.util.command;
 
-public class CommandException extends Exception {
+public class NoSuchCommandException extends Exception {
 
+    private String commandWord;
+    private String commandLine;
     private CommandSet<?> commandSet;
 
-    public CommandException(String message) {
+    public NoSuchCommandException(String message, String commandWord, String commandLine, CommandSet<?> commandSet) {
         super(message);
-    }
-
-    public CommandException(String message, CommandSet<?> commandSet) {
+        this.commandWord = commandWord;
+        this.commandLine = commandLine;
         this.commandSet = commandSet;
     }
 
-    public CommandException(String message, Throwable cause) {
+    public NoSuchCommandException(String message) {
+        super(message);
+    }
+
+    public NoSuchCommandException(String message, Throwable cause) {
         super(message, cause);
     }
 
     public CommandSet<?> getCommandSet() {
         return commandSet;
+    }
+
+    public String getCommandWord() {
+        return commandWord;
+    }
+
+    public String getCommandLine() {
+        return commandLine;
     }
 }
