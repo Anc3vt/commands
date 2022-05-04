@@ -5,9 +5,9 @@
 
     <name>REPL</name>
 
-    <groupId>com.ancevt.repl</groupId>
-    <artifactId>repl</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>com.ancevt.util</groupId>
+    <artifactId>command</artifactId>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <licenses>
@@ -27,19 +27,21 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>17</java.version>
+        <java.version>8</java.version>
 
         <github.global.server>github</github.global.server>
         <github.maven-plugin>0.12</github.maven-plugin>
+
+        <args.version>2.0.3</args.version>
+        <lombok.version>1.18.24</lombok.version>
+        <annotations.version>23.0.0</annotations.version>
+        <junit-jupiter-api.version>5.8.2</junit-jupiter-api.version>
+        <hamcrest-junit.version>2.0.0.0</hamcrest-junit.version>
 
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
-
-        <args.version>2.0.3</args.version>
-        <lombok.version>1.18.24</lombok.version>
-        <annotations.version>23.0.0</annotations.version>
     </properties>
 
     <distributionManagement>
@@ -78,6 +80,18 @@
             <artifactId>annotations</artifactId>
             <version>${annotations.version}</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit-jupiter-api.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-junit</artifactId>
+            <version>${hamcrest-junit.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -133,7 +147,7 @@
                     <includes>
                         <include>**/*</include>
                     </includes>
-                    <repositoryName>repl</repositoryName>
+                    <repositoryName>command</repositoryName>
                     <repositoryOwner>Anc3vt</repositoryOwner>
                 </configuration>
                 <executions>
