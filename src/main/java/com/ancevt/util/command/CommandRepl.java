@@ -63,29 +63,7 @@ public class CommandRepl<T> {
 
     public static void main(String[] args) throws IOException {
         CommandSet<Integer> commandSet = CommandSet.create(int.class);
-        commandSet.registerCommand("/test", a -> a.get(int.class, 1));
+        commandSet.registerCommand("/test", a -> a.get(int.class, 1, 0));
         new CommandRepl<>(commandSet).start(System.in, System.err);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
