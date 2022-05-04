@@ -26,19 +26,19 @@ import java.util.function.Function;
 public class Command<T> {
 
     private final String commandWord;
-    private final String help;
+    private final String description;
     private final Function<Args, T> function;
     private T lastResult;
 
     public Command(String commandWord, Function<Args, T> function) {
         this.commandWord = commandWord;
-        this.help = "";
+        this.description = "";
         this.function = function;
     }
 
-    public Command(String commandWord, String help, Function<Args, T> function) {
+    public Command(String commandWord, String description, Function<Args, T> function) {
         this.commandWord = commandWord;
-        this.help = help;
+        this.description = description;
         this.function = function;
     }
 
@@ -47,8 +47,8 @@ public class Command<T> {
         return lastResult;
     }
 
-    public String getHelp() {
-        return help;
+    public String getDescription() {
+        return description;
     }
 
     public String getCommandWord() {
@@ -68,7 +68,7 @@ public class Command<T> {
     public String toString() {
         return "Command{" +
                 "commandWord='" + commandWord + '\'' +
-                ", help='" + help + "\'" +
+                ", description='" + description + '\'' +
                 ", function=" + function +
                 '}';
     }

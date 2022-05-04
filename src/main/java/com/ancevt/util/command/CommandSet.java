@@ -18,6 +18,7 @@
 package com.ancevt.util.command;
 
 import com.ancevt.util.args.Args;
+import com.ancevt.util.texttable.TextTable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
@@ -48,11 +49,16 @@ public class CommandSet<T> extends HashSet<Command<? extends T>> {
         return this;
     }
 
-    public CommandSet<T> registerCommand(String commandLine, String help, Function<Args, T> function) {
-        add(new Command<>(commandLine, help, function));
+    public CommandSet<T> registerCommand(String commandLine, String description, Function<Args, T> function) {
+        add(new Command<>(commandLine, description, function));
         return this;
     }
 
+    public String getFormattedCommandList() {
+        TextTable textTable = new TextTable(false, "Command", "Help");
+        forEach(command -> textTable.addRow(command.getCommandWord(), command.getDescription()));
+        return textTable.render();
+    }
 
     public static <T> @NotNull CommandSet<T> create(Class<T> type) {
         return new CommandSet<>();
