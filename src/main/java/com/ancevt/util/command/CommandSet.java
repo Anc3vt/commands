@@ -18,7 +18,6 @@
 package com.ancevt.util.command;
 
 import com.ancevt.util.args.Args;
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
@@ -44,10 +43,16 @@ public class CommandSet<T> extends HashSet<Command<? extends T>> {
         throw new NoSuchCommandException(format("Unknown command: %s", commandWord), commandWord, commandLine, this);
     }
 
-    public CommandSet registerCommand(String commandLine, Function<Args, T> function) {
+    public CommandSet<T> registerCommand(String commandLine, Function<Args, T> function) {
         add(new Command<>(commandLine, function));
         return this;
     }
+
+    public CommandSet<T> registerCommand(String commandLine, String help, Function<Args, T> function) {
+        add(new Command<>(commandLine, help, function));
+        return this;
+    }
+
 
     public static <T> @NotNull CommandSet<T> create(Class<T> type) {
         return new CommandSet<>();

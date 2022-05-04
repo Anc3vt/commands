@@ -33,6 +33,7 @@
         <github.maven-plugin>0.12</github.maven-plugin>
 
         <args.version>2.0.4</args.version>
+        <texttable.version>0.0.1</texttable.version>
         <lombok.version>1.18.24</lombok.version>
         <annotations.version>23.0.0</annotations.version>
         <junit-jupiter-api.version>5.8.2</junit-jupiter-api.version>
@@ -61,6 +62,14 @@
                 <updatePolicy>always</updatePolicy>
             </snapshots>
         </repository>
+        <repository>
+            <id>texttable-mvn-repo</id>
+            <url>https://raw.github.com/Anc3vt/texttable/mvn-repo/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -68,6 +77,11 @@
             <groupId>com.ancevt.util</groupId>
             <artifactId>args</artifactId>
             <version>${args.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ancevt.util</groupId>
+            <artifactId>texttable</artifactId>
+            <version>${texttable.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
