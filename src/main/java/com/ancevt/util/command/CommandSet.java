@@ -21,15 +21,21 @@ import com.ancevt.util.args.Args;
 import com.ancevt.util.texttable.TextTable;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.StringTokenizer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 import static java.lang.String.format;
 
 public class CommandSet<T> extends HashSet<Command<? extends T>> {
 
     private static final String DELIMITER = " ";
+
+    private final List<Command<? extends T>> commandList = new ArrayList<>();
 
     public T execute(@NotNull String commandLine) throws NoSuchCommandException {
         StringTokenizer stringTokenizer = new StringTokenizer(commandLine, DELIMITER);
@@ -54,9 +60,54 @@ public class CommandSet<T> extends HashSet<Command<? extends T>> {
         return this;
     }
 
+    public List<Command<? extends T>> toList() {
+        return new ArrayList<>(commandList);
+    }
+
+    @Override
+    public void clear() {
+        commandList.clear();
+    }
+
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        commandList.retainAll(c);
+        return super.retainAll(c);
+    }
+
+    @Override
+    public boolean add(Command<? extends T> command) {
+        commandList.add(command);
+        return super.add(command);
+    }
+
+    @Override
+    public boolean addAll(@NotNull Collection<? extends Command<? extends T>> collection) {
+        commandList.addAll(collection);
+        return super.addAll(collection);
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        commandList.remove(o);
+        return super.remove(o);
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        commandList.removeAll(c);
+        return super.removeAll(c);
+    }
+
+    @Override
+    public boolean removeIf(Predicate<? super Command<? extends T>> filter) {
+        commandList.removeIf(filter);
+        return super.removeIf(filter);
+    }
+
     public String getFormattedCommandList() {
-        TextTable textTable = new TextTable(false, "Command", "Help");
-        forEach(command -> textTable.addRow(command.getCommandWord(), command.getDescription()));
+        TextTable textTable = new TextTable(false, "Command", "Description");
+        commandList.forEach(command -> textTable.addRow(command.getCommandWord(), command.getDescription()));
         return textTable.render();
     }
 
@@ -64,3 +115,28 @@ public class CommandSet<T> extends HashSet<Command<? extends T>> {
         return new CommandSet<>();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
