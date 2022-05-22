@@ -7,7 +7,7 @@
 
     <groupId>com.ancevt.util</groupId>
     <artifactId>commands</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>jar</packaging>
 
     <licenses>
@@ -32,7 +32,7 @@
         <github.global.server>github</github.global.server>
         <github.maven-plugin>0.12</github.maven-plugin>
 
-        <args.version>2.0.4</args.version>
+        <args.version>2.0.5</args.version>
         <texttable.version>0.0.1</texttable.version>
         <lombok.version>1.18.24</lombok.version>
         <annotations.version>23.0.0</annotations.version>

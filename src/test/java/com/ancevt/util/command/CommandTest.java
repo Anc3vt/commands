@@ -21,7 +21,6 @@ public class CommandTest {
     void testCommandArgs() throws NoSuchCommandException {
         CommandSet<Integer> commandSet = new CommandSet<>();
         commandSet.add(new Command<>("/add", args -> {
-            args.next();
             return args.next(int.class) + args.next(int.class);
         }));
         int result = commandSet.execute("/add 1 2");

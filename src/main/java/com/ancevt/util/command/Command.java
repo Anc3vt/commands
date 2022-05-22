@@ -43,7 +43,9 @@ public class Command<T> {
     }
 
     public T execute(String commandLine) {
-        lastResult = function.apply(Args.of(commandLine));
+        Args args = Args.of(commandLine);
+        args.skip();
+        lastResult = function.apply(args);
         return lastResult;
     }
 
