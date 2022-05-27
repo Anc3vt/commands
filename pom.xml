@@ -29,9 +29,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>8</java.version>
 
-        <github.global.server>github</github.global.server>
-        <github.maven-plugin>0.12</github.maven-plugin>
-
         <args.version>2.1.0</args.version>
         <texttable.version>0.0.1</texttable.version>
         <lombok.version>1.18.24</lombok.version>
