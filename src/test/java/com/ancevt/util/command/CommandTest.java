@@ -37,9 +37,7 @@ public class CommandTest {
     @Test
     void testCommandArgs() throws NoSuchCommandException {
         CommandSet<Integer> commandSet = new CommandSet<>();
-        commandSet.add(new Command<>("/add", args -> {
-            return args.next(int.class) + args.next(int.class);
-        }));
+        commandSet.add(new Command<>("/add", args -> args.next(int.class) + args.next(int.class)));
         int result = commandSet.execute("/add 1 2");
         assertThat(result, is(3));
     }

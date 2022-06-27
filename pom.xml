@@ -7,7 +7,7 @@
 
     <groupId>com.ancevt.util</groupId>
     <artifactId>commands</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
 
     <licenses>
@@ -62,7 +62,7 @@
         <java.version>8</java.version>
 
         <args.version>2.1.0</args.version>
-        <texttable.version>0.0.1</texttable.version>
+        <texttable.version>0.0.3</texttable.version>
         <lombok.version>1.18.24</lombok.version>
         <annotations.version>23.0.0</annotations.version>
         <junit-jupiter-api.version>5.8.2</junit-jupiter-api.version>
