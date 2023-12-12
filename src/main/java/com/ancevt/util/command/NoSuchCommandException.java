@@ -17,6 +17,7 @@
  */
 package com.ancevt.util.command;
 
+@Deprecated
 public class NoSuchCommandException extends Exception {
 
     private String commandWord;

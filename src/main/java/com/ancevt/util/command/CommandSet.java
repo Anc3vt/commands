@@ -31,6 +31,7 @@ import java.util.function.Predicate;
 
 import static java.lang.String.format;
 
+@Deprecated
 public class CommandSet<T> extends HashSet<Command<? extends T>> {
 
     private static final String DELIMITER = " ";
