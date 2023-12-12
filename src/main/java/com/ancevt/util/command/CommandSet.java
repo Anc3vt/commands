@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2022 the original author or authors.
+ * Copyright (C) 2023 the original author or authors.
  * See the notice.md file distributed with this work for additional
  * information regarding copyright ownership.
  *
@@ -31,6 +31,7 @@ import java.util.function.Predicate;
 
 import static java.lang.String.format;
 
+@Deprecated
 public class CommandSet<T> extends HashSet<Command<? extends T>> {
 
     private static final String DELIMITER = " ";

@@ -15,39 +15,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.ancevt.util.command;
+package com.ancevt.command;
 
-@Deprecated
-public class NoSuchCommandException extends Exception {
-
-    private String commandWord;
-    private String commandLine;
-    private CommandSet<?> commandSet;
-
-    public NoSuchCommandException(String message, String commandWord, String commandLine, CommandSet<?> commandSet) {
-        super(message);
-        this.commandWord = commandWord;
-        this.commandLine = commandLine;
-        this.commandSet = commandSet;
+public class ReplException extends RuntimeException {
+    public ReplException() {
     }
 
-    public NoSuchCommandException(String message) {
+    public ReplException(String message) {
         super(message);
     }
 
-    public NoSuchCommandException(String message, Throwable cause) {
+    public ReplException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public CommandSet<?> getCommandSet() {
-        return commandSet;
+    public ReplException(Throwable cause) {
+        super(cause);
     }
 
-    public String getCommandWord() {
-        return commandWord;
-    }
-
-    public String getCommandLine() {
-        return commandLine;
+    public ReplException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
     }
 }

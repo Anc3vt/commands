@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2022 the original author or authors.
+ * Copyright (C) 2023 the original author or authors.
  * See the notice.md file distributed with this work for additional
  * information regarding copyright ownership.
  *
@@ -23,6 +23,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Function;
 
+@Deprecated
 public class Command<T> {
 
     private final String commandWord;
